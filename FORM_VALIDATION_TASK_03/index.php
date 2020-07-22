@@ -1,5 +1,23 @@
 <?php 
-    print_r($_POST)
+    $name_error="";
+    if(trim($_POST["name"])==''){
+        $name_error=$name_error . "| name is empty";
+    } else {
+        if (str_word_count($_POST["name"])<2){
+            $name_error=$name_error= $name_error ."| name must contain two word";
+        }
+        if($_POST["name"][0] < 'A' ||  $_POST["name"][0] > 'z'){
+            $name_error=$name_error= $name_error ."| name must start with a letter";
+        }
+    }
+    
+    
+    
+    print( $name_error);
+    
+    function isEmpty($input){
+        return trim($input)!='';
+    }
 ?>
 
 <!DOCTYPE html>
