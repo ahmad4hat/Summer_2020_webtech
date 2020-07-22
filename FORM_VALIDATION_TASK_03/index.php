@@ -10,10 +10,24 @@
             $name_error=$name_error= $name_error ."| name must start with a letter";
         }
     }
+
+    
+    $email_error="";
+    if(trim($_POST["email"])==''){
+        $email_error=$email_error . "| email is empty";
+    } else {
+        if(!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
+            $email_error=$email_error . "| email is not valid";
+        }
+    }
+
     
     
     
-    print( $name_error);
+    print($name_error);
+    print("<br>");
+    print($email_error);
+
     
     function isEmpty($input){
         return trim($input)!='';
@@ -25,7 +39,7 @@
     <title>Webtech Class type</title>
 </head>
 <body>
-    <form method="post"  >
+    <form method="post" novalidate >
         <table border="1" width="100%">
             <tr>
                 <td colspan="3" align="center">PERSONAL PROFILE</td>
