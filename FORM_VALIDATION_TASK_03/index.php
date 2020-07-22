@@ -21,12 +21,19 @@
         }
     }
 
+    $date_error="";
+    if(!$_POST["dd"]){
+        $date_error=$date_error . "| DD is empty";
+    }
+
     
     
     
     print($name_error);
     print("<br>");
     print($email_error);
+    print("<br>");
+    print($date_error);
 
     
     function isEmpty($input){
@@ -68,9 +75,9 @@
             <tr>
                 <td width="30%">Date of birth</td>
                 <td width="60%">
-                    <input width="50%" type="number"  name="day"> /
-                    <input width="50%" type="number"  name="month"> /
-                    <input width="50%" type="number"  name="year"> (dd//mm//yyyy) 
+                    <input width="50%" type="number"  name="dd"> /
+                    <input width="50%" type="number"  name="mm"> /
+                    <input width="50%" type="number"  name="yy"> (dd//mm//yyyy) 
                 
                 </td>
                 <td width="20%"></td>
