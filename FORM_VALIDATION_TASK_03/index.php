@@ -120,6 +120,10 @@
         print("<br>");
 
     }
+    if($_POST['Browse']==null){
+        print("file can't be empty");
+        print("<br>");
+    }
     
     // if(   !(isset($_POST['ssc']) || isset($_POST['hsc']) || isset($_POST['bsc']) || isset($_POST['msc'] ) ) ) {
     //     if($_POST['ssc']=='' || $_POST['hsc']=='' || $_POST['msc']=='' || $_POST['bsc']=='' ){
