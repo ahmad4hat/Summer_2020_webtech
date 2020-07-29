@@ -6,7 +6,7 @@
 			<tr>
 				<td>Name</td>
 				<td>:</td>
-				<td><input name="name" type="text" value="Bob"></td>
+				<td><input name="name" type="text" value=<?php echo $_COOKIE['name']?>></td>
 				<td></td>
 			</tr>		
 			<tr><td colspan="4"><hr/></td></tr>
@@ -14,7 +14,7 @@
 				<td>Email</td>
 				<td>:</td>
 				<td>
-					<input name="email" type="text" value="bob@aiub.edu">
+					<input name="email" type="text" value=<?php echo $_COOKIE['email']?>>
 					<abbr title="hint: sample@example.com"><b>i</b></abbr>
 				</td>
 				<td></td>
@@ -43,6 +43,6 @@
 			</tr>
 		</table>
 		<hr/>
-		<input type="submit" value="Submit">		
+		<input type="submit" name ="submit" value="Submit">		
 	</form>
 </fieldset>
