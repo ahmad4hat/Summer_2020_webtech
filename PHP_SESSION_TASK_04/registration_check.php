@@ -20,11 +20,11 @@
 
 		
 
-		if(empty($name ) || empty($username) || empty($email) || empty($password) ){
+		if(empty($name ) || empty($uname) || empty($email) || empty($password) ){
 			echo "null submission found!";
 		}else{
 			
-			if($confirmPassword==$password)
+			if($confirmPassword===$password)
 			{
 				print_r($_POST);
 				setcookie('username',$uname, time()+3600,'/');
@@ -54,7 +54,7 @@
 
 	}else{
 		//echo "invalid request";
-		//header('location: login.php');
+		header('location: login.php');
 	}
 
 
