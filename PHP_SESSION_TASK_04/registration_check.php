@@ -27,8 +27,8 @@
 			if($confirmPassword===$password)
 			{
 				print_r($_POST);
-				setcookie('username',$uname, time()+3600,'/');
-				setcookie('uname',$name, time()+3600,'/');
+				setcookie('uname',$uname, time()+3600,'/');
+				setcookie('name',$name, time()+3600,'/');
 				setcookie('password',$password, time()+3600,'/');
 				setcookie('email',$email, time()+3600,'/');
 				setcookie('gender',$gender, time()+3600,'/');
