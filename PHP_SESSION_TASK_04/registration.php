@@ -1,12 +1,15 @@
+<?php
+
+?>
 <fieldset>
     <legend><b>REGISTRATION</b></legend>
-	<form>
+	<form action="registration_check.php" method="POST">
 		<br/>
 		<table width="100%" cellpadding="0" cellspacing="0">
 			<tr>
 				<td>Name</td>
 				<td>:</td>
-				<td><input name="name" type="text"></td>
+				<td><input name="name" type="text" ></td>
 				<td></td>
 			</tr>		
 			<tr><td colspan="4"><hr/></td></tr>

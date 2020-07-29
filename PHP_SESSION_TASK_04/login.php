@@ -1,3 +1,7 @@
+
+<?php 
+    echo $_SESSION['name'];
+?>
 <fieldset>
     <legend><b>LOGIN</b></legend>
     <form>
