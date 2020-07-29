@@ -13,7 +13,7 @@
 		<td>
 			<a href="dashboard.php">Dash Board</a><br>
 			<a href="view_profile.php">View Profile</a><br>
-			<a href="EditProfile.php">Edit Profile</a><br>
+			<a href="edit_profile.php">Edit Profile</a><br>
 			<a href="ChangeProfilePicture.php">Change Profile Picture</a><br>
 			<a href="EditPassword.html">Edit Password</a><br>
 			<a href="LogOut.php">Log Out</a><br>
