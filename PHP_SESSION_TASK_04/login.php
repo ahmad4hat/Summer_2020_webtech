@@ -1,6 +1,8 @@
 
 <?php 
-    echo $_SESSION['name'];
+    echo $_COOKIE['uname'];
+    echo $_COOKIE['name'];
+    print_r($_COOKIE);
 ?>
 <fieldset>
     <legend><b>LOGIN</b></legend>

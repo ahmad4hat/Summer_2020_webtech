@@ -60,9 +60,9 @@
 				<td colspan="3">
 					<fieldset>
 						<legend>Date of Birth</legend>    
-						<input type="text" size="2" />/
-						<input type="text" size="2" />/
-						<input type="text" size="4" />
+						<input type="text" name="day" size="2" />/
+						<input type="text" name="month" size="2" />/
+						<input type="text" name="year" size="4" />
 						<font size="2"><i>(dd/mm/yyyy)</i></font>
 					</fieldset>
 				</td>
@@ -70,7 +70,7 @@
 			</tr>
 		</table>
 		<hr/>
-		<input type="submit" value="Submit">
+		<input type="submit" name="submit" value="Submit">
 		<input type="reset">
 	</form>
 </fieldset>
