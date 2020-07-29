@@ -16,7 +16,7 @@
 			<a href="edit_profile.php">Edit Profile</a><br>
 			<a href="ChangeProfilePicture.php">Change Profile Picture</a><br>
 			<a href="edit_password.php">Edit Password</a><br>
-			<a href="LogOut.php">Log Out</a><br>
+			<a href="logout.php">Log Out</a><br>
 		</td>
 		<td>
 			<pre class="tab"> Welcome    <?php echo $_COOKIE['uname']?>  </pre>
