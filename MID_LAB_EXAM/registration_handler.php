@@ -22,7 +22,10 @@ if(isset($_POST['submit'])){
     
     $fp = fopen('data.txt', 'a');//opens file in append mode  
     fwrite($fp, $data.PHP_EOL);  
-    fclose($fp);  
+    fclose($fp);
+    
+    setcookie('status', "OK", time()+3600, '/');
+    setcookie('');
 
 
 }else {
