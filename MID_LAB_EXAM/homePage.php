@@ -13,8 +13,42 @@
     <title>Home page</title>
 </head>
 <body>
-    <h1>Welcome</h1>
-    <?php print_r($_COOKIE)?>
+    
+    <?php 
+
+        $name ="";
+        $userType="";
+        $file = fopen("data.txt","r");
+
+        while(! feof($file))
+        {
+            
+           
+            // echo '<tr>';
+            $data = explode("|",fgets($file));
+            
+            // if ( empty($data[0]) ){
+            //     echo $data . "<br/>";
+            // }
+
+            if(!empty($data[0])){
+                if($data[0]==$_COOKIE['id']){
+                    global $name;
+                    global $userType;
+                    $name=$data[2];
+                    $userType=$data[4];    
+                }
+            }
+            
+
+            // echo '</tr>';
+           
+        }
+    
+        fclose($file);
+    
+    ?>
+    <h1>Welcome <?php echo $name?></h1>
 
     
 </body>
