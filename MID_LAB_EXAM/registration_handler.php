@@ -25,7 +25,9 @@ if(isset($_POST['submit'])){
     fclose($fp);
     
     setcookie('status', "OK", time()+3600, '/');
-    setcookie('');
+    setcookie('userType',$_POST['userType'], time()+3600,'/');
+    setCookie('id', trim($_POST['id']), time()+3600,'/' );
+    header('location: homePage.php');
 
 
 }else {
