@@ -143,9 +143,10 @@
  </head>
 
  <body>
-     <div id="warningText"></div>
-     <form method="post" novalidate>
-         <table border="1" width="100%">
+     <div id="warningNameText"></div>
+     <div id="warningEmailText"></div>
+     <form method="post" id="form">
+         <table border=" 1" width="100%">
              <tr>
                  <td colspan="3" align="center">PERSONAL PROFILE</td>
 
@@ -157,7 +158,7 @@
              </tr>
              <tr>
                  <td width="30%">Email</td>
-                 <td width="60%"><input width="50%" type="email" name="email"></td>
+                 <td width="60%"><input width="50%" type="email" name="email" id="email"></td>
                  <td width="20%"></td>
              </tr>
              <tr>
@@ -234,26 +235,61 @@
 
  </html>
  <script type="text/javascript">
-     let nameEl = document.querySelector('#name');
-     let warningEl = document.querySelector('#warningText');
+     const nameEl = document.querySelector('#name');
+     const warningNameEL = document.querySelector('#warningNameText');
+     const warningEmailEL = document.querySelector('#warningEmailText');
+     const emailEl = document.querySelector('#email');
+     const formEl = document.querySelector('#form');
+
+     const nameValidation = (name) => {
+         if (!name) {
+             warningNameEL.innerHTML = "<h1>NAME is empty <h1>"
+
+         } else if (name.length === 0) {
+
+
+             warningNameEL.innerHTML = "<h1>was empty <h1>"
+         } else {
+             warningNameEL.innerHTML = null;
+
+             //  warningEl.innerHTML = `<h1>name is ok ${name} <h1>`
+
+         }
+     }
+     const emailValidation = email => {
+         if (!email) {
+             warningEmailEL.innerHTML = "<h1>Email is empty <h1>"
+
+         } else if (email.length === 0) {
+
+
+             warningEmailEL.innerHTML = "<h1>was empty <h1>"
+         } else {
+             warningEmailEL.innerHTML = null;
+
+             //  warningEl.innerHTML = `<h1>name is ok ${name} <h1>`
+
+         }
+     }
+
 
      const nameOnChange = (event) => {
          // let nameEl = document.querySelector('#name');
          console.log(event);
          console.log("event was created");
          const name = event.target.value;
-         if (!name) {
-             warningEl.innerHTML = "<h1>NAME is empty <h1>"
-
-         } else if (name.length === 0) {
-
-
-             warningEl.innerHTML = "<h1>was empty <h1>"
-         } else {
-
-             warningEl.innerHTML = `<h1>name is ok ${name} <h1>`
-
-         }
+         nameValidation(name);
      }
-     nameEl.addEventListener('change', nameOnChange)
+
+
+
+     //  nameEl.addEventListener('change', nameOnChange)
+     nameEl.addEventListener('keyup', nameOnChange)
+     emailEl.addEventListener('keyup', (event) => emailValidation(event.target.value))
+     formEl.addEventListener('submit', (event) => {
+
+         event.preventDefault();
+         nameValidation(nameEl.value);
+         emailValidation(emailEl.value);
+     })
  </script>
