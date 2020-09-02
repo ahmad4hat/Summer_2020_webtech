@@ -57,10 +57,18 @@
             </tr>
         </table>
     </form>
+    <script src="ajax.js"></script>
     <script>
+        let responseText = null;
         const regiHandler = () => {
             console.log("regi handler called");
+            console.log(responseText);
         }
+        ajaxPost('registration_handler.php', {
+            "name": "gax"
+        }, (res) => {
+            responseText = res
+        });
     </script>
 </body>
 
