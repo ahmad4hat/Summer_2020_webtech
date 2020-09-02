@@ -50,7 +50,7 @@
 
 
 
-                    <input type="button" name="submit" value="submit" onclick="regiHandler()">
+                    <input type="button" name="submit" value="submit" id="submitId">
 
 
                 </td>
@@ -59,16 +59,39 @@
     </form>
     <script src="ajax.js"></script>
     <script>
-        let responseText = null;
-        const regiHandler = () => {
-            console.log("regi handler called");
-            console.log(responseText);
+        let responseText = null
+        const submitButtonEl = document.getElementById("submitId");
+        console.log(submitButtonEl);
+
+
+
+        const valueList = ['id', 'password', 'confirmPassword', 'name', 'email', 'userType'];
+
+        const sendObject = {};
+
+        const formToObject = () => {
+            for (const val of valueList) {
+                console.log(val)
+                sendObject[val] = document.querySelector(`#${val}`).value;
+            }
+            console.log(sendObject);
+
         }
-        ajaxPost('registration_handler.php', {
-            "name": "gax"
-        }, (res) => {
-            responseText = res
-        });
+
+
+
+
+
+
+        const regiHandler = event => {
+            formToObject()
+            ajaxPost('registration_handler.php', sendObject, (res) => {
+                responseText = res
+                console.log(res);
+            });
+
+        }
+        submitButtonEl.addEventListener("click", regiHandler)
     </script>
 </body>
 

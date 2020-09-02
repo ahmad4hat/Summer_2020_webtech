@@ -6,6 +6,7 @@ const ajaxPost = (url, obj, callback) => {
   for (const key in obj) {
     data.append(key, obj[key]);
   }
+  console.log(data);
   let value = null;
   let responseText = (res) => {
     value = res;
