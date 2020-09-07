@@ -15,7 +15,7 @@ function searchUser($search)
 {
 	$con = dbConnection();
 	$sql = "select * from employee where name like '%" . $search . "%'";
-	echo $sql;
+	//echo $sql;
 	$result = mysqli_query($con, $sql);
 	$users = [];
 	while ($row = mysqli_fetch_assoc($result)) {

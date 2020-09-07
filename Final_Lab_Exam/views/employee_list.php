@@ -13,7 +13,7 @@ require_once('../service/userService.php');
 <body>
 
 
-	<h4>Add empolyee</h4>
+	<h4>Add Empolyee</h4>
 	<h1>Employee List page</h1>
 
 	<input type="text" name="search" id="search_input">
@@ -37,6 +37,7 @@ require_once('../service/userService.php');
 				<td>action</td>
 			</tr>
 
+
 			<?php for ($i = 0; $i != count($users); $i++) { ?>
 				<tr>
 					<td><?= $users[$i]['id'] ?></td>
@@ -54,6 +55,7 @@ require_once('../service/userService.php');
 					</td>
 				</tr>
 			<?php } ?>
+
 
 		</table>
 	</div>
@@ -84,13 +86,74 @@ require_once('../service/userService.php');
 		};
 		const searchInputEl = document.querySelector("#search_input");
 		const searchButtonEL = document.querySelector("#search_button");
-		const tableEl = document.querySelector("#table")
+		const tableEl = document.querySelector("#table");
+		const tableInnerEl = document.querySelector("#table_inner");
+
+
 
 		searchButtonEL.addEventListener("click", (event) => {
 			ajaxPost("http://localhost/webtech/Final_Lab_Exam/php/user_search_controller.php", {
 				"search": searchInputEl.value
 			}, (value) => {
-				tableEl.innerHTML = value;
+				let allValue = "";
+				const backValue = JSON.parse(value);
+
+				for (let emp of backValue) {
+
+					// 	let empValue = `
+
+					// 	<tr>
+					// 	<td>${emp.id}</td>
+					// 	<td>${emp.username}</td>
+					// 	<td>${emp.name} </td>
+					// 	<td><?= $users[$i]['company_name'] ?></td>
+					// 	<td><?= $users[$i]['contact_no'] ?></td>
+					// 	<td><?= $users[$i]['password'] ?></td>
+					// 	<td><?= $users[$i]['type'] ?></td>
+
+					// 	<td>
+					// 		<a href="edit.php?id=<?= $users[$i]['id'] ?>"> Edit</a> |
+					// 		<a href="delete.php?id=<?= $users[$i]['id'] ?>"> Delete</a>
+
+					// 	</td>
+					// </tr>
+
+					// 	`;
+
+					let empValue = "";
+					for (const key in emp) {
+						empValue = empValue + `<td>${epm[key]}</td>`;
+					}
+					empValue = empValue + `<td>
+						<a href="edit.php?id=${emp.id}"> Edit</a> |
+						<a href="delete.php?id=${emp.id}"> Delete</a>
+
+					</td>`
+
+					allValue = allValue + empValue;
+
+				}
+
+
+
+				let table = `<table border=1>
+			<tr>
+				<td>ID</td>
+				<td>Username</td>
+				<td>Name</td>
+				<td>Company Name</td>
+				<td>Contact no</td>
+				<td>password</td>
+				<td>type</td>
+				<td>action</td>
+			</tr>
+
+
+				${allValue}
+
+
+			</table>`;
+				tableEl.innerHTML = table;
 
 			})
 		})
