@@ -7,39 +7,53 @@ require_once('../service/userService.php');
 <html>
 
 <head>
-	<title>user List</title>
+	<title>employee List</title>
 </head>
 
 <body>
 
-	<h1>User List page</h1>
+
+	<h4>Add empolyee</h4>
+	<h1>Employee List page</h1>
+
 
 	<?php
 	$users = getAllUser();
 	?>
 
-	<table border=1>
-		<tr>
-			<td>ID</td>
-			<td>NAME</td>
-			<td>password</td>
-			<td>Email</td>
-			<td>Action</td>
-		</tr>
-		<?php for ($i = 0; $i != count($users); $i++) { ?>
+	<div id="table">
+		<table border=1>
 			<tr>
-				<td><?= $users[$i]['id'] ?></td>
-				<td><?= $users[$i]['username'] ?></td>
-				<td><?= $users[$i]['email'] ?> </td>
-				<td>$users[$i]['email']</td>
-				<td>
-					<a href="edit.php?id=<?= $users[$i]['id'] ?>"> Edit</a> |
-					<a href="delete.php?id=<?= $users[$i]['id'] ?>"> Delete</a>
-
-				</td>
+				<td>ID</td>
+				<td>Username</td>
+				<td>Name</td>
+				<td>Company Name</td>
+				<td>Contact no</td>
+				<td>password</td>
+				<td>type</td>
+				<td>action</td>
 			</tr>
-		<?php } ?>
-	</table>
+
+			<?php for ($i = 0; $i != count($users); $i++) { ?>
+				<tr>
+					<td><?= $users[$i]['id'] ?></td>
+					<td><?= $users[$i]['username'] ?></td>
+					<td><?= $users[$i]['name'] ?> </td>
+					<td><?= $users[$i]['company_name'] ?></td>
+					<td><?= $users[$i]['contact_no'] ?></td>
+					<td><?= $users[$i]['password'] ?></td>
+					<td><?= $users[$i]['type'] ?></td>
+
+					<td>
+						<a href="edit.php?id=<?= $users[$i]['id'] ?>"> Edit</a> |
+						<a href="delete.php?id=<?= $users[$i]['id'] ?>"> Delete</a>
+
+					</td>
+				</tr>
+			<?php } ?>
+
+		</table>
+	</div>
 
 </body>
 
