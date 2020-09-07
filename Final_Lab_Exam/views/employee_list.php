@@ -16,6 +16,9 @@ require_once('../service/userService.php');
 	<h4>Add empolyee</h4>
 	<h1>Employee List page</h1>
 
+	<input type="text" name="search" id="search_input">
+	<button id="search_button"> Search</button>
+
 
 	<?php
 	$users = getAllUser();
@@ -54,7 +57,43 @@ require_once('../service/userService.php');
 
 		</table>
 	</div>
+	<script>
+		const ajaxPost = (url, obj, callback) => {
+			const xhttp = new XMLHttpRequest();
+			xhttp.open("POST", url, true);
+			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			const data = new FormData();
+			for (const key in obj) {
+				data.append(key, obj[key]);
+			}
+			let value = null;
+			let responseText = (res) => {
+				value = res;
+			};
+			xhttp.send(data);
+
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					callback(this.responseText);
+				}
+			};
+			//   return value;
+		};
+		const searchInputEl = document.querySelector("#search_input");
+		const searchButtonEL = document.querySelector("#search_button");
+		const tableEl = document.querySelector("#table")
+
+		searchButtonEL.addEventListener("click", (event) => {
+			ajaxPost("http://localhost/webtech/Final_Lab_Exam/php/user_search_controller.php", {
+				"search": searchInputEl.value
+			}, (value) => {
+				tableEl.innerHTML = value;
+
+			})
+		})
+	</script>
 
 </body>
+
 
 </html>
