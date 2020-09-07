@@ -100,35 +100,19 @@ require_once('../service/userService.php');
 
 				for (let emp of backValue) {
 
-					// 	let empValue = `
 
-					// 	<tr>
-					// 	<td>${emp.id}</td>
-					// 	<td>${emp.username}</td>
-					// 	<td>${emp.name} </td>
-					// 	<td><?= $users[$i]['company_name'] ?></td>
-					// 	<td><?= $users[$i]['contact_no'] ?></td>
-					// 	<td><?= $users[$i]['password'] ?></td>
-					// 	<td><?= $users[$i]['type'] ?></td>
-
-					// 	<td>
-					// 		<a href="edit.php?id=<?= $users[$i]['id'] ?>"> Edit</a> |
-					// 		<a href="delete.php?id=<?= $users[$i]['id'] ?>"> Delete</a>
-
-					// 	</td>
-					// </tr>
-
-					// 	`;
 
 					let empValue = "";
 					for (const key in emp) {
-						empValue = empValue + `<td>${epm[key]}</td>`;
+						empValue = empValue + `<td>${emp[key]}</td>`;
 					}
 					empValue = empValue + `<td>
 						<a href="edit.php?id=${emp.id}"> Edit</a> |
 						<a href="delete.php?id=${emp.id}"> Delete</a>
 
-					</td>`
+					</td>
+					</tr>
+					`
 
 					allValue = allValue + empValue;
 
