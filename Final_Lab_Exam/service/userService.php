@@ -11,10 +11,11 @@ function getById($id)
 	return $row;
 }
 
-function searchUser($text)
+function searchUser($search)
 {
 	$con = dbConnection();
-	$sql = "select * from employee where name+company_name like '%${$text}%'";
+	$sql = "select * from employee where name like '%" . $search . "%'";
+	echo $sql;
 	$result = mysqli_query($con, $sql);
 	$users = [];
 	while ($row = mysqli_fetch_assoc($result)) {

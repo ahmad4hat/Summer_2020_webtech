@@ -59,6 +59,7 @@ require_once('../service/userService.php');
 	</div>
 	<script>
 		const ajaxPost = (url, obj, callback) => {
+			console.log(obj);
 			const xhttp = new XMLHttpRequest();
 			xhttp.open("POST", url, true);
 			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -70,10 +71,12 @@ require_once('../service/userService.php');
 			let responseText = (res) => {
 				value = res;
 			};
-			xhttp.send(data);
+			xhttp.send(`search=${obj.search}`);
 
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
+					console.log("sending ajax");
+					console.log(this.responseText);
 					callback(this.responseText);
 				}
 			};
